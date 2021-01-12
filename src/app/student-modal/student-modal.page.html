@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+    <ion-button color="danger" (click) =  "closeModal()"> 
+      Close
+    </ion-button>
+    </ion-buttons>
+    <ion-title>{{isUpdate ? 'Update' : 'Add'}} Test</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form  #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-item>
+      <ion-label position = "floating">Investigation Name: </ion-label>
+      <ion-input autofocus = true autocorrect = "on" required clear-input = true [(ngModel)]="data.investigation" name="investigation"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position = "floating">Speciman Type: blood/plasma / etc- </ion-label>
+      <ion-input required=true [(ngModel)]="data.SpecimanType" name = "SpecimanType"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position = "floating">Container</ion-label>
+      <ion-input [(ngModel)]="data.container" name = "container"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position = "floating">TAT</ion-label>
+      <ion-input [(ngModel)]="data.TAT" name="TAT"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Ref Ranges</ion-label>
+      <ion-input [(ngModel)]="data.refrange" name="refrange"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Lab</ion-label>
+      <ion-input [(ngModel)]="data.Lab" name="Lab"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position= "floating">Comments</ion-label>
+      <ion-input [(ngModel)]="data.Comments" name="Comments"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position = "floating">Alias</ion-label>
+      <ion-input [(ngModel)]="data.Alias" name="Alias"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Phone No/Ext</ion-label>
+      <ion-input [(ngModel)]="data.phone" name="phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Profile Tests </ion-label>
+      <ion-input [(ngModel)] = "data.profileTests" name="profileTests"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Phone / Alert Criteria</ion-label>
+      <ion-input [(ngModel)]="data.phoneCriteria" name="phoneCriteria"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label position="floating">Referral Test (Yes/No) </ion-label>
+    <ion-input [(ngModel)]="data.referred" name="referred"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Referral Website</ion-label>
+      <ion-input [(ngModel)]="data.refWebsite" name="refWebsite"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Ref Center Number</ion-label>
+      <ion-input [(ngModel)]="data.refNumber" name="refNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Enter Your Name and ID</ion-label>
+
+      <ion-input [(ngModel)]="data.username" name="username"></ion-input>
+    </ion-item>
+    
+
+
+
+    <ion-button class="ion-margin-top" 
+    fill="outline" 
+    expand="block" 
+    color="primary" type="submit">{{isUpdate ? 'Update' : 'Save'}}</ion-button>
+  </form>
+
+</ion-content>
