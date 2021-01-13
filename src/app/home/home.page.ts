@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ɵChangeDetectorStatus } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { Student, Test, StudentService } from '../services/student.service';
 import { StudentModalPage } from '../student-modal/student-modal.page';
@@ -6,6 +6,7 @@ import {FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime} from "rxjs/operators";
 import { serializeNodes } from '@angular/compiler/src/i18n/digest';
 
+UNDO THIS GOT ɵChangeDetectorStatus
 
 @Component({
   selector: 'app-home',
