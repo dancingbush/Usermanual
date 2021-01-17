@@ -6,7 +6,7 @@ import {FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime} from "rxjs/operators";
 import { serializeNodes } from '@angular/compiler/src/i18n/digest';
 
-UNDO THIS GOT ɵChangeDetectorStatus
+
 
 @Component({
   selector: 'app-home',
@@ -75,7 +75,7 @@ export class HomePage {
         console.log("Home.page.ts 73= Serach not found for " + searchTerm + " so searching alais");
        return  test.Alias.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
       }
-       
+       console.log("home.oage: 78: Found " + searchTerm + " in test.investigation.");
       return test.investigation.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
       //return test.investigation.toLowerCase().indexOf(searchTerm.toLowerCase()) > test.Alias.toLowerCase().indexOf(searchTerm.toLowerCase());
       //return test.Alias.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
@@ -145,7 +145,7 @@ export class HomePage {
       .then(({ data, role}) => {
         if ( role === 'created'){
           //add new test from Add Test page to test arrauy
-          console.log("Home.page: 76- New test created : " + data + "- Adding to Tests Array view.")
+          console.log("Home.page: 148- New test created : " + data + "- Adding to Tests Array view.")
           //this.students.push(data);
           this.tests.push(data);
         }

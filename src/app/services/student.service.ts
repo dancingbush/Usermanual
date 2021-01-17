@@ -44,11 +44,15 @@ export class StudentService {
   //GET requests syntax http://localhost/crud_api/api/app.php/students/?id=1
   //private url = 'http://localhost/crud_api/api/app.php/students';
   
-  //LOCALHOST TEsts phpMyAdmon database
-  private url = 'http://localhost/crud_api/api/app.php/Tests';
+  /**
+   * LOCALHOST TEsts phpMyAdmon database
+  */
+ //private url = 'http://localhost/crud_api/api/app.php/Tests';
 
-  //URL for mooneycallans.com server
-  //private url = 'http://mooneycallans.com/crud_api/api/app.php/Tests';
+  /**
+   * REMOTE SERVER URL for mooneycallans.com server
+   */
+  private url = 'http://mooneycallans.com/crud_api/api/app.php/Tests';
   
 
   constructor(private http : HttpClient) {
@@ -71,7 +75,7 @@ export class StudentService {
   //create (student : Student){
     create (test : Test){
 
-    console.log("student.service.ts: POST new test: name : " + test.investigation + " Type: " + test.SpecimanType); 
+    console.log("student.service.ts: POST to PUT API new test: name : " + test.investigation + " Type: " + test.SpecimanType); 
     
     return this.http.post(this.url, test);
    
@@ -92,7 +96,7 @@ export class StudentService {
   }
 
 remove(id : number){
-  console.log("STUDENT.SERVICE.ts: 81- removing: "+ this.url + '/?id=' + id);
+  console.log("STUDENT.SERVICE.ts: 99- removing: "+ this.url + '/?id=' + id);
   return this.http.delete(this.url + '/?id=' + id);
 }
 }
