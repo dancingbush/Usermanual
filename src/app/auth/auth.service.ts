@@ -10,10 +10,10 @@ import { User } from './user.model';
 export class AuthService {
 
   //Local host - XAMMMp htdocs for testing
-  private url = "http://localhost/auth-api/api";
+  //private url = "http://localhost/auth-api/api";
   
-  //MY SERVER
-  //private url = "http://mooneycallans.com/auth-api/api";
+  //MY SERVER mooneycallans/auth-api/aoi
+private url = "http://mooneycallans.com/auth-api/api";
 
   constructor(private http: HttpClient) { }
 
