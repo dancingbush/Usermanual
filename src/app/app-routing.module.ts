@@ -22,7 +22,7 @@ const routes: Routes = [
   //Changes to load the login page
   {
     path: '',
-    redirectTo: 'loginPage',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {

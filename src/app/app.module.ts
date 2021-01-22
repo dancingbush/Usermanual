@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentModalPage } from './student-modal/student-modal.page';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [AppComponent, StudentModalPage],
