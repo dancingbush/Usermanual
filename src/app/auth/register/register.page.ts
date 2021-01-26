@@ -6,6 +6,7 @@ import { AuthService } from '../auth.service';
 //import { TermsOfServicePage } from '../terms-of-service/terms-of-service.page';
 //import { PrivacyPolicyPage } from '../privacy-policy/privacy-policy.page';
 import { PasswordValidator } from '../../validators/password.validator';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -38,7 +39,8 @@ export class RegisterPage implements OnInit {
     private authService : AuthService,
     private alertCtrl : AlertController,
     private toastCtrl : ToastController,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private router : Router
   ) { 
 
     this.matching_passwords_group = new FormGroup({
@@ -90,6 +92,8 @@ export class RegisterPage implements OnInit {
         await toast.present();
         loading.dismiss();
         this.form.reset();
+        this.router.navigateByUrl('/walkthrough');
+        
       },
       //Handle errors
       async () => {

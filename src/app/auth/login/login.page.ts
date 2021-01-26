@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 import { MenuController } from '@ionic/angular'; 
+import { Storage} from '@ionic/storage';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class LoginPage implements OnInit {
 /** 
  * Tutprial here https://www.youtube.com/watch?v=8ORgYL7VrvE
 */
+
 
 form : FormGroup;
 validation_messages = {
@@ -33,7 +35,8 @@ validation_messages = {
     private alertCtrl : AlertController,
     private toastCtrl : ToastController,
     private loadingCtrl: LoadingController,
-    private router : Router) {
+    private router : Router,
+    private storgae: Storage) {
       this.form = new FormGroup({
         //username : new FormControl('', [Validators.required, Validators.minLength(3)]),
         //password : new FormControl('', [Validators.required, Validators.minLength(5)])
@@ -60,6 +63,7 @@ validation_messages = {
   //Diable side menu fo the page
   ionViewDidEnter(){
     //this.menu.enable(true);
+    console.log("Login page: i voew did enter");
   }
 
   //Restore ot defult whn leaving his pge
@@ -74,11 +78,28 @@ validation_messages = {
     const loading = await this.loadingCtrl.create({message: "Hi " + this.form.value.email + ". Please wait while you are logged in...", duration: 2000});
     await loading.present();
 
+    let show  = true;
+
     this.authService.login(this.form.value).subscribe(
       async token => {
         localStorage.setItem('token', token);
         loading.dismiss();
-        this.router.navigateByUrl('/create');
+
+        //If walkthough already ticked dont show again
+        // this.storgae.get("showWalkThrough").then((val)=>{
+        //   if (val != null){
+        //     show = val;
+        //   }
+
+        // });
+
+        // console.log("login.pg: 86 checking the wlakThorgh boolean: " + show);
+        // if (show){
+        // this.router.navigateByUrl('/walkthrough');
+        // //this.router.navigateByUrl('/create');
+        // }else{
+        //   this.router.navigateByUrl('/home');
+        // }
       },
       async () => {
         let messageFailure = "Login Failed. Register if you are a new user and check you have a valid connection. ";

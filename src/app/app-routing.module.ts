@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
   /**
    * This defines where app route opening apage to and 
@@ -10,29 +11,28 @@ const routes: Routes = [
    * when the app opens. 
    */
   {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
-  // Orginal code where Home.ts loaded
-  // {
-  //   path: '',
-  //   redirectTo: 'home',
-  //   pathMatch: 'full'
-  // },
-  //Changes to load the login page
+ 
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    path: 'loginPage',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'walkthrough',
+    loadChildren: () => import('./walkthrough/walkthrough.module').then(m => m.WalkthroughPageModule)
   },
   {
     path: 'student-modal',
     loadChildren: () => import('./student-modal/student-modal.module').then( m => m.StudentModalPageModule)
   },
-  {
-    path: 'loginPage',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
+  
   {
     path: 'login',
     loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule)
